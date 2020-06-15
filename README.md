@@ -30,6 +30,16 @@ Finish time: 3:57pm
 
 Actual time needed to complete: 37 min.
 
+### Number and name of feature: 4. As a user, I want to view any error messages that occur during the usage of my book list application so that I know if something has gone wrong.
+
+Estimate of time needed to complete: 20min
+
+Start time: 4:00pm
+
+Finish time: 4:12pm
+
+Actual time needed to complete: 12 min.
+
 **Author**: Daisy, Edgar and Lulu
 
 **Version**: 1.0.0 
