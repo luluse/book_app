@@ -10,6 +10,16 @@ Finish time: 2:50
 
 Actual time needed to complete: 50 min
 
+### Number and name of feature: 2. As a user, I want to search the Google Books API so that I can view the results of my search.
+
+Estimate of time needed to complete: 30min
+
+Start time: 2:55pm
+
+Finish time: 3:15pm
+
+Actual time needed to complete: 20 min.
+
 **Author**: Daisy, Edgar and Lulu
 
 **Version**: 1.0.0 
