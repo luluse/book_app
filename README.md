@@ -20,6 +20,16 @@ Finish time: 3:15pm
 
 Actual time needed to complete: 20 min.
 
+### Number and name of feature: 3. As a user, I want to be able to browse the search results.
+
+Estimate of time needed to complete: 1 hour
+
+Start time: 3:20pm
+
+Finish time: 3:57pm
+
+Actual time needed to complete: 37 min.
+
 **Author**: Daisy, Edgar and Lulu
 
 **Version**: 1.0.0 
