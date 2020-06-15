@@ -1,14 +1,14 @@
 # book_app
 
-### Number and name of feature: 
+### Number and name of feature: 1. As a user, I want my application to load quickly so that I have an enjoyable experience.
 
-Estimate of time needed to complete: 
+Estimate of time needed to complete: 1hour
 
-Start time: 
+Start time: 2pm
 
-Finish time: 
+Finish time: 2:50
 
-Actual time needed to complete: 
+Actual time needed to complete: 50 min
 
 **Author**: Daisy, Edgar and Lulu
 
