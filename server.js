@@ -22,9 +22,9 @@ app.get('/', (req,res) =>{
   res.render('pages/index.ejs');
 });
 
-// app.get('/hello', (request,response) =>{
-//   response.render('index.ejs');
-// })
+app.get('/searches', (request,response) =>{
+  response.render('./searches/new.ejs');
+})
 
 app.listen(PORT,() => {
   console.log(`listening on ${PORT}`);
