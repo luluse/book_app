@@ -13,7 +13,18 @@
 <body>
   <header></header>
   <main>
-    <h1>Hello world</h1>
+    <p>You have this many books: <%=myBookShelf.length%></p>
+    <% myBookShelf.forEach( book => { %>
+      <li>
+        <%console.log(book);%>
+        <img src="<%=book.image_url %>"/>
+        <h2><%= book.title %></h2>
+        <h3><%= book.author %></h3>
+        <p><%= book.description %></p>
+        <p><%= book.isbn %></p>
+      </li>
+    <!-- </form> -->
+      <% }) %>
   </main>
   <footer></footer>
   
