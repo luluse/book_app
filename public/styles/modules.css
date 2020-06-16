@@ -1,0 +1,15 @@
+.boxes{
+  width: 450px;
+  height: 60px;
+  border: 2px solid black;
+  align-self: center;
+  margin-bottom: 10px;
+}
+.boxes1{
+  width: 450px;
+  /* box-sizing: border-box; */
+  border: 2px solid black;
+  height: 60px;
+  align-self: center;
+  margin-bottom: 10px;
+}

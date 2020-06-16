@@ -3,16 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="styles/reset.css" type="text/CSS" rel="stylesheet" />
+  <link href="styles/base.css" type="text/CSS" rel="stylesheet" />
+  <link href="styles/layout.css" type="text/CSS" rel="stylesheet" />
+  <link href="styles/modules.css" type="text/CSS" rel="stylesheet" />
   <title>Book Collection</title>
 </head>
 <body>
+  <header id="book-header">
+    <h1>Best Books!</h1>
+
+  </header>
   <main>
-    <% searchResults.forEach( book => { %>
-      <h3><%= book.title %></h3>
-      <h3><%= book.author %></h3>
-      <h3><%= book.description %></h3>
-      <img src=<%= book.image %>/>
-    <% }) %>
+    <div id="search-results">
+      <h4>Search Results</h4>
+    </div>
+
+    <div id="book-stuff">
+      <ul>
+        <% searchResults.forEach( book => { %>
+          <li>
+            <img src=<%= book.image %>/>
+            <h2><%= book.title %></h2>
+            <h3><%= book.author %></h3>
+            <p><%= book.description %></p>
+            
+          </li>
+          <% }) %>
+
+      </ul>
+    </div>
    
   </main>
 </body>

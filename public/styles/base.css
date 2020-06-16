@@ -1,0 +1,24 @@
+* {
+  background-color: beige;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+}
+
+h4{
+  font-family: 'Sriracha', cursive;
+}
+
+h3{
+  font-family: 'Work Sans', sans-serif;
+}
+h2{
+  font-style: italic;
+}
+
