@@ -50,6 +50,16 @@ Finish time: 6:15pm
 
 Actual time needed to complete: 2 hours.
 
+### Number and name of feature: 1. As a user, I want all of my saved books to be displayed on the home page so that I can view all of the books from my collection in a single view.
+
+Estimate of time needed to complete: 1 hour.
+
+Start time: 2:13pm
+
+Finish time: 6:15pm
+
+Actual time needed to complete: 2 hours.
+
 **Author**: Daisy, Edgar and Lulu
 
 **Version**: 1.0.0 
