@@ -40,6 +40,16 @@ Finish time: 4:12pm
 
 Actual time needed to complete: 12 min.
 
+### Number and name of feature: 5. As a user, I want a simple, clean looking UI so that my application is easy to navigate.
+
+Estimate of time needed to complete: 1 hour.
+
+Start time: 4:15pm
+
+Finish time: 6:15pm
+
+Actual time needed to complete: 2 hours.
+
 **Author**: Daisy, Edgar and Lulu
 
 **Version**: 1.0.0 

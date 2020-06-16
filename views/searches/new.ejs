@@ -3,27 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="styles/reset.css" type="text/CSS" rel="stylesheet" />
+  <link href="styles/base.css" type="text/CSS" rel="stylesheet" />
+  <link href="styles/layout.css" type="text/CSS" rel="stylesheet" />
+  <link href="styles/modules.css" type="text/CSS" rel="stylesheet" />
   <title>Book Collection</title>
 </head>
 <body>
   <main>
     <h4>Search by Title or Author</h4>
     <form action="/searches" method="post">
-      <input type="text" name="search" placeholder="Enter a title or author" required>
-      <fieldset>
+      <input class="boxes" type="text" name="search" placeholder="Enter a title or author" required>
+      <fieldset class="boxes1">
         <label for="title">
           <span>Title</span>
           <input type="radio" name="search" value="title" required>
 
         </label>
       </fieldset>
-      <fieldset>
+      <fieldset class="boxes1">
         <label for="author">
           <span>Author</span>
           <input type="radio" name="search" value="author" required>
         </label>
       </fieldset>
-      <button type="submit">Search the Google Books API</button>
+      <button class="boxes" type="submit">Search the Google Books API</button>
     </form>
   </main>
   
