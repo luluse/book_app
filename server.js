@@ -2,6 +2,7 @@
 
 const express = require('express');
 const app = express();
+const pg = require('pg');
 
 require('ejs');
 require('dotenv').config();
@@ -18,19 +19,35 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 // app.use(express.static(__dirname + 'views'));
 
-app.get('/', (req, res) => {
-  res.status(200).render('pages/index.ejs');
-});
+
+
+app.get('/', getBooks);
+// app.get('/', (req, res) => {
+//   res.status(200).render('pages/index.ejs');
+// });
 
 app.get('/searches', (request, response) => {
   response.status(200).render('./searches/new.ejs');
 })
 
+function getBooks(request, response) {
+  let sql = 'SELECT * FROM books;';
+  client.query(sql)
+    .then(sqlResults => {
+      let books = sqlResults.rows;
+      // Count for number of books in database
+      console.log(books.length);
+      response.status(200).render('pages/index.ejs', { myBookShelf: books })
+    })
+}
+
+
+
 
 
 app.post('/searches', (request, response) => {
-  try{
-    console.log(request.body.search);
+  try {
+    // console.log(request.body.search);
 
     let query = request.body.search[0];
     let titleOrAuthor = request.body.search[1];
@@ -45,7 +62,7 @@ app.post('/searches', (request, response) => {
 
     superagent.get(url)
       .then(results => {
-      // console.log(results.body.items);
+        // console.log(results.body.items);
 
         let bookArray = results.body.items;
 
@@ -53,11 +70,11 @@ app.post('/searches', (request, response) => {
           return new Book(book.volumeInfo);
         });
 
-        console.log(finalBookArray);
-        response.status(200).render('searches/show.ejs', {searchResults: finalBookArray})
+        // console.log(finalBookArray.length);
+        response.status(200).render('searches/show.ejs', { searchResults: finalBookArray })
 
       })
-  } catch(err){
+  } catch (err) {
     console.log('ERROR', err);
     response.status(500).send('Sorry, there is an error');
   }
@@ -69,15 +86,21 @@ function Book(info) {
 
   this.title = info.title ? info.title : 'no title available';
   this.author = info.authors ? info.authors : 'no author available';
+  this.isbn = info.industryIdentifiers[1] ? info.industryIdentifiers[1] : 'no ISBN avialable';
+  this.image = info.imageLinks ? info.imageLinks.smallThumbnail : placeholderImage;
   this.description = info.description ? info.description : 'no description available';
-  this.image = info.imageLinks.smallThumbnail ? info.imageLinks.smallThumbnail : placeholderImage;
-
 }
 
-app.get('*', (request,response)=>{
+app.get('*', (request, response) => {
   response.status(404).send('sorry, this route does not exist');
 });
 
-app.listen(PORT, () => {
-  console.log(`listening on ${PORT}`);
-});
+
+const client = new pg.Client(process.env.DATABASE_URL);
+client.on('error', err => console.log(err));
+client.connect()
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`listening on ${PORT}`);
+    })
+  });
