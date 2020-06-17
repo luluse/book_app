@@ -14,16 +14,24 @@
   <header></header>
   <main>
     <p>You have this many books: <%=myBookShelf.length%></p>
-    <% myBookShelf.forEach( book => { %>
-      <li>
-        <%console.log(book);%>
-        <img src="<%=book.image_url %>"/>
-        <h2><%= book.title %></h2>
-        <h3><%= book.author %></h3>
-        <p><%= book.description %></p>
-        <p><%= book.isbn %></p>
-      </li>
-    <!-- </form> -->
+    <ul>
+      <% myBookShelf.forEach( book => { %>
+        <form action="/addbook" method="post">
+          <li>
+            <%console.log(book);%>
+            <img src="<%=book.image_url %>"/>
+            <h2><%= book.title %></h2>
+            <h3><%= book.author %></h3>
+            <p><%= book.description %></p>
+            <p><%= book.isbn %></p>
+            <a href="/books/<%= book.id %>">Show details</a>
+            <!-- <input type="hidden" name="title" value=<%=book.title %> />
+            <input type="hidden" name="author" value=<%=book.author %> />
+            <input type="hidden" name="description" value=<%=book.description %> />
+            <input type="hidden" name="isbn" value=<%=book.isbn %> />
+            <button>add to my favorites</button> -->
+          </li></ul>
+        </form>
       <% }) %>
   </main>
   <footer></footer>

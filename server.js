@@ -14,21 +14,33 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: true }));
 
 app.set('view engine', 'ejs');
-// app.set("views", path.results(__dirname, 'public'));
 
 app.use(express.static('public'));
-// app.use(express.static(__dirname + 'views'));
-
 
 
 app.get('/', getBooks);
-// app.get('/', (req, res) => {
-//   res.status(200).render('pages/index.ejs');
-// });
+// app.get('addBook', showAddForm);
+app.post('addBook', addNewBook);
 
 app.get('/searches', (request, response) => {
   response.status(200).render('./searches/new.ejs');
 })
+
+app.get('/books/:id', getOneBook);
+
+function getOneBook(request, response){
+  let id = request.params.id;
+  console.log(request.params.id);
+  let sql = 'SELECT * FROM books WHERE id=$1;';
+  let safeValues = [id];
+
+  client.query(sql, safeValues)
+    .then(sqlResults =>{
+      // console.log(sqlResults.rows);
+      response.status(200).render('books/detail.ejs', {oneBook: sqlResults.rows[0]});
+      // console.log(oneBook);
+    })
+}
 
 function getBooks(request, response) {
   let sql = 'SELECT * FROM books;';
@@ -41,6 +53,21 @@ function getBooks(request, response) {
     })
 }
 
+// function showAddForm(reques,response){
+//   response.status(200).render()
+// }
+
+function addNewBook(request,response){
+  let {title, author, isbn, image_url, description} = request.body;
+  let sql = 'INSERT INTO books (author, title, isbn, description, image_url) VALUES ($1, $2, $3, $4, $5) RETURNING ID;';
+  let safeValues = [title, author, isbn, description, image_url];
+
+  client.query(sql, safeValues)
+    .then(results =>{
+      let id = results.rows[0].id;
+      response.redirect(`/books/${id}`);
+    })
+}
 
 
 

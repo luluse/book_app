@@ -1,5 +1,6 @@
 # book_app
 
+## LAB11
 ### Number and name of feature: 1. As a user, I want my application to load quickly so that I have an enjoyable experience.
 
 Estimate of time needed to complete: 1hour
@@ -50,15 +51,27 @@ Finish time: 6:15pm
 
 Actual time needed to complete: 2 hours.
 
+
+## LAB 12
 ### Number and name of feature: 1. As a user, I want all of my saved books to be displayed on the home page so that I can view all of the books from my collection in a single view.
 
 Estimate of time needed to complete: 1 hour.
 
 Start time: 2:13pm
 
-Finish time: 6:15pm
+Finish time: 4pm
 
-Actual time needed to complete: 2 hours.
+Actual time needed to complete: 1:50 hours.
+
+### Number and name of feature: 2. As a user, I want to request information about a single book so that I can view its additional details and share it by URL.
+
+Estimate of time needed to complete: 2 hour.
+
+Start time: 4pm
+
+Finish time: 6:30pm
+
+Actual time needed to complete: 2:30pm
 
 **Author**: Daisy, Edgar and Lulu
 
