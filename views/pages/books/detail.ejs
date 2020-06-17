@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book Details</title>
+  <%- include('../../layout/head.ejs') %>
 </head>
 <body>
   <section>
-   <img src="<%= oneBook.image_url %>"/>
+   <img src="<%= oneBook.image_url %>" alt="<%= oneBook.title %>" />
    <h2><%= oneBook.title %></h2>
    <h3><%= oneBook.author %></h3>
    <p><%= oneBook.description %></p>
