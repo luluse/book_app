@@ -17,29 +17,28 @@ app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
 
-
+//ROUTES
 app.get('/', getBooks);
-// app.get('addBook', showAddForm);
-app.post('addBook', addNewBook);
-
-app.get('/searches', (request, response) => {
-  response.status(200).render('./searches/new.ejs');
-})
-
 app.get('/books/:id', getOneBook);
+app.post('/addBook', addNewBook);
+app.post('/searches', getBooksFromAPI);
+app.get('/searches', searchBook);
+
+function searchBook (request, response) {
+  response.status(200).render('./searches/new.ejs');
+}
 
 function getOneBook(request, response){
   let id = request.params.id;
-  console.log(request.params.id);
+
   let sql = 'SELECT * FROM books WHERE id=$1;';
   let safeValues = [id];
 
   client.query(sql, safeValues)
     .then(sqlResults =>{
-      // console.log(sqlResults.rows);
-      response.status(200).render('books/detail.ejs', {oneBook: sqlResults.rows[0]});
-      // console.log(oneBook);
-    })
+      console.log('my sql results', sqlResults.rows);
+      response.status(200).render('pages/books/detail.ejs', {oneBook: sqlResults.rows[0]});
+    });
 }
 
 function getBooks(request, response) {
@@ -48,19 +47,20 @@ function getBooks(request, response) {
     .then(sqlResults => {
       let books = sqlResults.rows;
       // Count for number of books in database
-      console.log(books.length);
-      response.status(200).render('pages/index.ejs', { myBookShelf: books })
-    })
-}
+      // console.log(books.length);
+      if(sqlResults.rowCount === 0){
+        response.status(200).render('pages/searches/news.ejs');
+      } else{
+        response.status(200).render('pages/index.ejs', { myBookShelf: books })
 
-// function showAddForm(reques,response){
-//   response.status(200).render()
-// }
+      }
+    }).catch(error => console.log(error))
+}
 
 function addNewBook(request,response){
   let {title, author, isbn, image_url, description} = request.body;
   let sql = 'INSERT INTO books (author, title, isbn, description, image_url) VALUES ($1, $2, $3, $4, $5) RETURNING ID;';
-  let safeValues = [title, author, isbn, description, image_url];
+  let safeValues = [author, title, isbn, description, image_url];
 
   client.query(sql, safeValues)
     .then(results =>{
@@ -70,9 +70,7 @@ function addNewBook(request,response){
 }
 
 
-
-
-app.post('/searches', (request, response) => {
+function getBooksFromAPI (request, response){
   try {
     // console.log(request.body.search);
 
@@ -105,7 +103,7 @@ app.post('/searches', (request, response) => {
     console.log('ERROR', err);
     response.status(500).send('Sorry, there is an error');
   }
-});
+}
 
 
 function Book(info) {
@@ -113,7 +111,7 @@ function Book(info) {
 
   this.title = info.title ? info.title : 'no title available';
   this.author = info.authors ? info.authors : 'no author available';
-  this.isbn = info.industryIdentifiers[1] ? info.industryIdentifiers[1] : 'no ISBN avialable';
+  this.isbn = info.industryIdentifiers[1] ? info.industryIdentifiers[1].identifier : 'no ISBN available';
   this.image = info.imageLinks ? info.imageLinks.smallThumbnail : placeholderImage;
   this.description = info.description ? info.description : 'no description available';
 }
