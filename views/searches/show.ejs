@@ -17,7 +17,7 @@
       <ul>
         <% searchResults.forEach( book => { %>
 
-          <form action="/addBook" method="post">
+          
             <li>
               <%console.log(book);%>
               <img src=<%= book.image %>/>
@@ -25,17 +25,17 @@
               <h3><%= book.author %></h3>
               <p><%= book.description %></p>
               <p><%= book.isbn %></p>
-              <input type="hidden" name="image_url" value="<%=book.image %>" />
-              <input type="hidden" name="title" value="<%=book.title %>" />
-              <input type="hidden" name="author" value="<%=book.author %>" />
-              <input type="hidden" name="description" value="<%=book.description %>" />
-              <input type="hidden" name="isbn" value="<%=book.isbn %>" />
-              <button>add to my favorites</button>
-            </li>
-          </form>
-
+              <form action="/detail" method="post">
+                <input type="hidden" name="image_url" value="<%=book.image %>" />
+                <input type="hidden" name="title" value="<%=book.title %>" />
+                <input type="hidden" name="author" value="<%=book.author %>" />
+                <input type="hidden" name="description" value="<%=book.description %>" />
+                <input type="hidden" name="isbn" value="<%=book.isbn %>" />
+                <input type="text" name="bookshelf" placeholder="Create a Bookshelf"/>
+                <button type="submit">add to my favorites</button>
+              </li>
+              </form>
           <% }) %>
-
       </ul>
     </div>
    

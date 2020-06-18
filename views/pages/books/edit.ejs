@@ -1,0 +1,9 @@
+<form action="/update/<%= oneBook.id %>?_method=PUT" method="post">
+  <input type="hidden" name="image_url" value="<%- oneBook.image_url %>" placeholder="Image Name"/>
+  <input type="text" name="title" value="<%- oneBook.title %>" placeholder="Book Name"/>
+  <input type="text" name="author" value="<%- oneBook.author %>" placeholder="Author Name"/>
+  <input type="text" name="description" value="<%- oneBook.description %>" placeholder="Book description"/>
+  <input type="text" name="isbn" value="<%- oneBook.isbn %>" placeholder="Book ISBN"/>
+  <input type="text" name="bookshelf" placeholder="Create a Bookshelf">
+  <button>Update Details</button>
+  </form>

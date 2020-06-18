@@ -73,6 +73,29 @@ Finish time: 6:30pm
 
 Actual time needed to complete: 2:30pm
 
+## LAB 13
+### Number and name of feature: 1. As a user, I want to update the details of a book so that it displays the way I want it to, according to my personalized preferences.
+
+Estimate of time needed to complete: 2 hour.
+
+Start time: 2pm
+
+Finish time: 6:00pm
+
+Actual time needed to complete: 4 hours
+
+### Number and name of feature: 2. As a user, I want to remove books from my collection so that it accurately represents my favorite books.
+
+Estimate of time needed to complete: 1 hour.
+
+Start time: 6pm
+
+Finish time: 6:45pm
+
+Actual time needed to complete: 45 minutes
+
+
+
 **Author**: Daisy, Edgar and Lulu
 
 **Version**: 1.0.0 

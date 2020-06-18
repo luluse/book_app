@@ -7,7 +7,14 @@
   <header></header>
   <main>
     <p>You have this many books: <%=myBookShelf.length%></p>
+    <a href="/searches">Search For Books!</a>
     <ul>
+      <select name="My Bookshelves">
+        <%totalBookshelves.forEach(bookshelf => {%>
+         <% console.log(bookshelf) %>
+        <option value="<%=bookshelf.bookshelf%>"><%=bookshelf.bookshelf%> </option>
+       <% }) %>
+      </select>
       <% myBookShelf.forEach( book => { %>
         <form action="/addbook" method="post">
           <li>
