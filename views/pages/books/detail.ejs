@@ -11,5 +11,13 @@
    <p><%= oneBook.description %></p>
    <p><%= oneBook.isbn %></p>
   </section>
+  <div id="addPartialHere">
+  <%- include('../books/edit.ejs') %>
+</div>
+<form action="/delete/<%= oneBook.id %>?_method=DELETE" method="post">
+ <button type="submit">Delete Book</button> 
+</form>
+
+<a href='/'>Return to Home</a>
 </body>
 </html>
